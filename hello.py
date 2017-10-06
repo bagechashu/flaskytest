@@ -4,11 +4,12 @@ from flask import Flask, render_template
 from flask import request 
 from flask import redirect
 from flask import abort
-# from flask_script import Manager
+from flask_script import Manager
 
 app = Flask(__name__)
 
-# manager = Manager(app)
+manager = Manager(app)
+bootstrap = Bootstrap(app)
 
 
 @app.route('/')
@@ -33,6 +34,6 @@ def baiduredirect():
 
 
 if __name__ == '__main__':
-	app.run(debug=True)
-#	manager.run()
+	# app.run(debug=True)
+	manager.run()
 
