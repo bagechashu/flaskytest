@@ -9,7 +9,6 @@ from flask_script import Manager
 app = Flask(__name__)
 
 manager = Manager(app)
-bootstrap = Bootstrap(app)
 
 
 @app.route('/')
