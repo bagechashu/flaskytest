@@ -7,6 +7,7 @@ function Prepare_flask_env() {
 	$1/pip3 install flask-bootstrap
 	$1/pip3 install flask-moment 
 	$1/pip3 install flask-wtf 
+	$1/pip3 install flask-sqlalchemy 
 }
 
 

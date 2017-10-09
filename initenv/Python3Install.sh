@@ -2,8 +2,9 @@
 # by:lixiaoxue 2017-10-08
 
 function Install_compile_tools() {
-	yum groupinstall "Development tools"
-	yum install tree
+	yum -y groupinstall "Development tools"
+	yum -y install tree
+	yum -y install sqlite
 }
 
 function Install_python3_tarball() {
@@ -11,7 +12,7 @@ function Install_python3_tarball() {
 	wget https://www.python.org/ftp/python/$2/$3.tar.xz
 	tar xJf $3.tar.xz 
 	cd $1/$3
-	./configure --prefix=$4
+	./configure --enable-loadable-sqlite-extensions --prefix=$4
 	make
 	make install
 	make clean
@@ -21,8 +22,8 @@ function Install_python3_tarball() {
 	mv /usr/bin/python /usr/bin/python2.6.6
 	rm -f /usr/bin/python2
 	ln -s /usr/bin/python2.6.6 /usr/bin/python2
-	ln -s $4/bin/python3.6 /usr/bin/python3
-	ln -s $4/bin/python3.6 /usr/bin/python
+	ln -s $4/python3.6 /usr/bin/python3
+	ln -s $4/python3.6 /usr/bin/python
 
 	# centos6u4 adapt yum tools python version
 	cp /usr/bin/yum /usr/bin/yum.bak
