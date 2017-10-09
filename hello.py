@@ -1,4 +1,5 @@
 #!/usr/bin/evn python
+from datetime import datetime
 
 from flask import Flask, render_template
 from flask import request 
@@ -6,11 +7,13 @@ from flask import redirect
 from flask import abort
 from flask_script import Manager
 from flask_bootstrap import Bootstrap
+from flask.ext.moment import Moment
 
 app = Flask(__name__)
 
 manager = Manager(app)
 bootstrap = Bootstrap(app)
+moment = Moment(app)
 
 
 @app.errorhandler(404)
@@ -25,7 +28,8 @@ def internal_server_error(e):
 @app.route('/')
 def index():
 	# return '<h1>Hello world!</h1>'
-	return render_template('index.html')
+	return render_template('index.html',
+				current_time=datetime.utcnow())
 
 @app.route('/browser')
 def browser():
