@@ -2,9 +2,8 @@
 from datetime import datetime
 
 from flask import Flask, render_template
-from flask import request 
-from flask import redirect
-from flask import abort
+from flask import session, redirect, url_for, flash
+from flask import request, abort
 from flask_script import Manager
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
@@ -36,14 +35,20 @@ def internal_server_error(e):
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-	name = None
+	# name = None
 	form = NameForm()
 	if form.validate_on_submit():
-		name = form.name.data
-		form.name.data=''
+		old_name = session.get('name')
+		if old_name is not None and old_name != form.name.data:
+			flash('Looks like you have changed your name!')
+		# name = form.name.data
+		# form.name.data=''
+		session['name'] = form.name.data
+		return redirect(url_for('index'))
 	return render_template('index.html', 
 				form=form,
-				name=name,
+				# name=name,
+				name=session.get('name'),
 				current_time=datetime.utcnow())
 
 @app.route('/browser')
