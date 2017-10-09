@@ -1,8 +1,7 @@
-#!/usr/bin/evn bash
 
 function Prepare_flask_env() {
 	# pip install flask library
-	pip3 install flask argparse flask-script flask-bootstrap 
+	$1/pip3 install flask argparse flask-script flask-bootstrap flask-moment 
 }
 
 
@@ -13,7 +12,8 @@ function Download_flasktest() {
 }
 
 function main() {
-	Prepare_flask_env
+	PIP_PATH=~/Flask/venv/bin
+	Prepare_flask_env ${PIP_PATH}
 	# Download_flasktest
 }
 
