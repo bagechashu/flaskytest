@@ -1,7 +1,12 @@
 
 function Prepare_flask_env() {
 	# pip install flask library
-	$1/pip3 install flask argparse flask-script flask-bootstrap flask-moment 
+	$1/pip3 install flask
+	$1/pip3 install argparse
+	$1/pip3 install flask-script
+	$1/pip3 install flask-bootstrap
+	$1/pip3 install flask-moment 
+	$1/pip3 install flask-wtf 
 }
 
 
