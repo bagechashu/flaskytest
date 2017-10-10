@@ -18,4 +18,6 @@ So if you do the test in tag 3c, you need do ` pip install flask-script argparse
 ##### The tag 3c need the 3rd library flask-bootstrap.
 So you need do ` pip install flask-bootstrap` first.
 
-
+======
+###### favicon.ico
+favicon.ico 16*16*32
