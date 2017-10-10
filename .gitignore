@@ -1,3 +1,5 @@
+*.py[cod]
+
 # C extensions
 *.so
 
@@ -33,11 +35,8 @@ nosetests.xml
 .project
 .pydevproject
 
-#SQLite databases
+# SQLite databases
 *.sqlite
 
-# Virtual enviroment
+# Virtual environment
 venv
-
-# Python binary file
-*.pyc
